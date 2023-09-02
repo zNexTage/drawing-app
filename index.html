@@ -9,8 +9,19 @@
   <body>
    <canvas id="drawing"></canvas>
     <div id="side-menu" class="side-menu">
-      <label for="drawing-color" id="lblColor" for="drawing-color">Cor</label>
-      <input type="color" name="drawing-color" id="drawing-color" />
+
+      <div class="side-tools">
+        <label for="drawing-color" id="lblColor" for="drawing-color">Cor</label>
+        <input type="color" name="drawing-color" id="drawing-color" />
+      </div>
+
+      <div class="side-tools">
+        <label for="txtLineWidth">
+          Espessura
+        </label>
+        <input type="number" max="200" name="line-width" step="1" id="txtLineWidth" />
+      </div>
+
     </div>
 
 

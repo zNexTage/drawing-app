@@ -31,4 +31,17 @@ html, body {
   text-align: center;
   display: flex;
   flex-direction: column;
+  max-width: 110px;
+}
+
+.side-tools {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.side-tools > input {
+  width: 100%;
 }
