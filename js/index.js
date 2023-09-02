@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", ()=> {
+document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("drawing");
   const sideMenu = document.getElementById("side-menu");
   const drawingColor = document.getElementById("drawing-color");
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
   const ctx = canvas.getContext("2d");
 
-  let coord = {x:0, y:0};
+  let coord = { x: 0, y: 0 };
   let color = "#000";
 
   drawingColor.addEventListener("change", event => {
@@ -17,30 +17,64 @@ document.addEventListener("DOMContentLoaded", ()=> {
   });
 
   txtLineWidth.addEventListener("change", event => {
-    const newLineWidth = Number.parseInt(event.target.value);   
-    
-    if(newLineWidth > 200){
+    const newLineWidth = Number.parseInt(event.target.value);
+
+    if (newLineWidth > 200) {
       event.preventDefault();
       txtLineWidth.value = 200;
       return;
     }
-    
+
     lineWidth = event.target.value;
   })
+
+
+
+  let selectedShape = "line";
+
+  const line = document.getElementById("line");
+  line.addEventListener("click", event => {
+    selectedShape = "line";    
+  });
+
+  const square = document.getElementById("square");
+  square.addEventListener("click", event => {
+    selectedShape = "square";    
+  });
+
+  const circle = document.getElementById("circle");
+  circle.addEventListener("click", event => {
+    selectedShape = "circle";    
+  });
 
   const draw = event => {
     ctx.beginPath();
     ctx.lineWidth = lineWidth;
-    ctx.lineCap = 'round';
     ctx.strokeStyle = color;
-    ctx.moveTo(coord.x, coord.y);
-    reposition(event);
-    ctx.lineTo(coord.x, coord.y);
+    
+    if (selectedShape == "square") {
+      reposition(event);
+      ctx.rect(coord.x, coord.y, 90, 90);      
+    } 
+    else if(selectedShape == "circle"){
+      reposition(event);
+      ctx.arc(coord.x, coord.y, 50, 0, 2 * Math.PI);
+    }
+    else if(selectedShape == "line") {
+      ctx.lineCap = 'round';
+      ctx.moveTo(coord.x, coord.y);
+      reposition(event);
+      ctx.lineTo(coord.x, coord.y);
+    }
+
     ctx.stroke();
   }
 
+ 
+
   const start = event => {
     canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('click', draw);
     reposition(event);
   }
 
