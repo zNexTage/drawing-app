@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
   }
 
   const start = event => {
-    document.addEventListener('mousemove', draw);
+    canvas.addEventListener('mousemove', draw);
     reposition(event);
   }
 
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
   }
 
   const stop = () => {
-    document.removeEventListener('mousemove', draw);
+    canvas.removeEventListener('mousemove', draw);
   }
 
   const resize = () => {
@@ -60,8 +60,8 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
   resize();
 
-  document.addEventListener('mousedown', start);
-  document.addEventListener('mouseup', stop);
+  canvas.addEventListener('mousedown', start);
+  canvas.addEventListener('mouseup', stop);
   document.addEventListener('resize', resize);
 
 
