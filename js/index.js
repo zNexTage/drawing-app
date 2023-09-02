@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
   let coord = {x:0, y:0};
   let color = "#000";
 
-  sideMenu.addEventListener("change", event => {
+  drawingColor.addEventListener("change", event => {
     color = event.target.value;
   });
 
