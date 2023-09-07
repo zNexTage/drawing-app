@@ -28,12 +28,19 @@ document.addEventListener("DOMContentLoaded", () => {
     lineWidth = event.target.value;
   })
 
+  
+  
+  let selectedShape = "line";
+  
   const onShapeClick = event => {
+    const previousSelected = document.getElementsByClassName("side-tools-button selected");
+    for(let prevSelected of previousSelected){
+      prevSelected.classList.remove("selected");
+    }
+
+    event.target.classList.toggle("selected");
     selectedShape = event.target.value; 
   }
-
-
-  let selectedShape = "line";
 
   const line = document.getElementById("line");
   line.addEventListener("click", onShapeClick);
