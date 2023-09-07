@@ -43,3 +43,21 @@ html, body {
 .side-tools > input {
   width: 100%;
 }
+
+.side-tools-list {
+  list-style: none;
+  list-style-position: inside;
+}
+
+.side-tools-button {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0 10px 0;
+  background-color: #908282;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.side-tools-button.selected {
+  background-color: #689260;
+}
