@@ -49,15 +49,24 @@ html, body {
   list-style-position: inside;
 }
 
-.side-tools-button {
+.button {
   width: 100%;
   padding: 8px;
   margin: 10px 0 10px 0;
-  background-color: #908282;
   border: 1px solid #000;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.side-tools-button {  
+  background-color: #908282;
 }
 
 .side-tools-button.selected {
   background-color: #689260;
+}
+
+.save-button {
+  background-color: #80bf73;
+  text-decoration: none;
 }

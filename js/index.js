@@ -106,5 +106,15 @@ document.addEventListener("DOMContentLoaded", () => {
   canvas.addEventListener('mouseup', stop);
   document.addEventListener('resize', resize);
 
+  const saveButton = document.getElementById("save-button");
 
+  const onSaveClick = event => {
+    const link = document.createElement("a");
+
+    link.setAttribute('download', "download");
+    link.href= canvas.toDataURL("image/png");
+    link.click();
+  }
+
+  saveButton.addEventListener("click", onSaveClick);
 });
