@@ -43,8 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const onEraserClick = event => {
-    onShapeClick(event);
-    color = "#FFF";
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
   const eraser = document.getElementById("eraser");
   eraser.addEventListener("click", onEraserClick);
