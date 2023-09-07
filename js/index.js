@@ -28,24 +28,21 @@ document.addEventListener("DOMContentLoaded", () => {
     lineWidth = event.target.value;
   })
 
+  const onShapeClick = event => {
+    selectedShape = event.target.value; 
+  }
 
 
   let selectedShape = "line";
 
   const line = document.getElementById("line");
-  line.addEventListener("click", event => {
-    selectedShape = "line";    
-  });
+  line.addEventListener("click", onShapeClick);
 
   const square = document.getElementById("square");
-  square.addEventListener("click", event => {
-    selectedShape = "square";    
-  });
+  square.addEventListener("click", onShapeClick);
 
   const circle = document.getElementById("circle");
-  circle.addEventListener("click", event => {
-    selectedShape = "circle";    
-  });
+  circle.addEventListener("click", onShapeClick);
 
   const draw = event => {
     ctx.beginPath();
