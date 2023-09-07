@@ -26,9 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     lineWidth = event.target.value;
-  })
-
-  
+  });  
   
   let selectedShape = "line";
   
@@ -40,7 +38,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     event.target.classList.toggle("selected");
     selectedShape = event.target.value; 
+
+    color = drawingColor.value;
   }
+
+  const onEraserClick = event => {
+    onShapeClick(event);
+    color = "#FFF";
+  }
+  const eraser = document.getElementById("eraser");
+  eraser.addEventListener("click", onEraserClick);
 
   const line = document.getElementById("line");
   line.addEventListener("click", onShapeClick);
@@ -64,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
       reposition(event);
       ctx.arc(coord.x, coord.y, 50, 0, 2 * Math.PI);
     }
-    else if(selectedShape == "line") {
+    else if(selectedShape == "line" || selectedShape == "eraser") {
       ctx.lineCap = 'round';
       ctx.moveTo(coord.x, coord.y);
       reposition(event);
@@ -73,8 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ctx.stroke();
   }
-
- 
 
   const start = event => {
     canvas.addEventListener('mousemove', draw);
